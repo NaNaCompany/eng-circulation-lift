@@ -1,0 +1,59 @@
+{
+  "id": "E139",
+  "value": 122.5,
+  "reference70": "122.500",
+  "method": "Independent Python Decimal with 80-digit working precision, reported to 70 significant digits; direct physical formula. E140 uses 260-step dimensional-wavenumber bisection, independent of the runtime dimensionless solver.",
+  "cases": [
+    {
+      "name": "opposite circulation reverses lift",
+      "values": {
+        "circulation": -5
+      },
+      "expected": -122.5,
+      "reference70": "-122.500"
+    },
+    {
+      "name": "zero circulation",
+      "values": {
+        "circulation": 0
+      },
+      "expected": 0.0,
+      "reference70": "0.000"
+    },
+    {
+      "name": "zero free stream",
+      "values": {
+        "v": 0
+      },
+      "expected": 0.0,
+      "reference70": "0.000"
+    },
+    {
+      "name": "alternate fluid",
+      "values": {
+        "rho": 1000,
+        "v": 2,
+        "circulation": 0.5
+      },
+      "expected": 1000.0,
+      "reference70": "1000.0"
+    },
+    {
+      "name": "balanced extreme product",
+      "values": {
+        "rho": 1e-200,
+        "v": 1e+200,
+        "circulation": 1
+      },
+      "expected": 1.0,
+      "reference70": "1"
+    },
+    {
+      "name": "zero density rejected",
+      "values": {
+        "rho": 0
+      },
+      "throws": true
+    }
+  ]
+}
